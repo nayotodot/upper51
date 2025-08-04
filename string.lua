@@ -1,8 +1,10 @@
+---@diagnostic disable: undefined-field
 if not string then return {}; end
-local byte = string.byte;
-local find = string.find;
-local len  = string.len;
-local sub  = string.sub;
+local byte  = string.byte;
+local find  = string.find;
+local len   = string.len;
+local sub   = string.sub;
+local gfind = string.gfind;
 
 local function newbyte(s, i, j)
 	i = i or 1;
@@ -34,7 +36,7 @@ return {
 	dump    = string.dump,
 	find    = string.find,
 	format  = string.format,
-	gmatch  = string.gfind,
+	gmatch  = gfind,
 	gsub    = string.gsub,
 	len     = string.len,
 	lower   = string.lower,
@@ -45,5 +47,5 @@ return {
 	upper   = string.upper,
 
 	-- Renamed in Lua 5.1
-	gfind   = string.gfind,
+	gfind   = gfind,
 };

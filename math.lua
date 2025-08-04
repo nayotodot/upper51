@@ -1,3 +1,4 @@
+---@diagnostic disable: deprecated, undefined-field
 if not math then return {}; end
 local abs   = math.abs;
 local ceil  = math.ceil;
@@ -14,7 +15,7 @@ local function cosh(x)
 	if x == 0 then
 		return 1;
 	end
-	local x = exp(abs(x));
+	x = exp(abs(x));
 	return x / 2.0 + 0.5 / x;
 end
 
@@ -23,7 +24,7 @@ local function sinh(x)
 		return 0;
 	end
 	local sign = x < 0 and -1 or 1;
-	local x = x * sign;
+	x = x * sign;
 	if x < 1 then
 		local y = x * x;
 		x = x + x * y * (((-0.78966127417357099479e0 * y + -0.16375798202630751372e3) * y + -0.11563521196851768270e5) * y + -0.35181283430177117881e6) /
@@ -40,7 +41,7 @@ local function tanh(x)
 		return 0;
 	end
 	local sign = x < 0 and -1 or 1;
-	local x = x * sign;
+	x = x * sign;
 	if x < 0.54930614433405 then
 		local y = x * x;
 		x = x + x * y * ((-0.96437492777225469787e0 * y + -0.99225929672236083313e2) * y + -0.16134119023996228053e4) /
@@ -53,17 +54,17 @@ local function tanh(x)
 end
 
 return {
-	abs        = math.abs,
+	abs        = abs,
 	acos       = math.acos,
 	asin       = math.asin,
 	atan       = math.atan,
 	atan2      = math.atan2,
-	ceil       = math.ceil,
+	ceil       = ceil,
 	cos        = math.cos,
 	cosh       = cosh,
 	deg        = math.deg,
-	exp        = math.exp,
-	floor      = math.floor,
+	exp        = exp,
+	floor      = floor,
 	fmod       = math.mod,
 	frexp      = math.frexp,
 	huge       = tonumber("inf"),

@@ -1,22 +1,16 @@
-local collectgarbage = require "collectgarbage";
-local load           = require "load";
-local module         = require "module";
-local newrequire     = require "require";
-local select         = require "select";
-local unpack         = require "unpack";
-
+---@diagnostic disable: deprecated
 return {
 	assert         = assert,
-	collectgarbage = collectgarbage,
+	collectgarbage = require "collectgarbage",
 	dofile         = dofile,
 	error          = error,
 	getfenv        = getfenv,
 	getmetatable   = getmetatable,
 	ipairs         = ipairs,
-	load           = load,
+	load           = require "load",
 	loadfile       = loadfile,
 	loadstring     = loadstring,
-	module         = module,
+	module         = require "module",
 	newproxy       = newproxy,
 	next           = next,
 	pairs          = pairs,
@@ -25,13 +19,13 @@ return {
 	rawequal       = rawequal,
 	rawget         = rawget,
 	rawset         = rawset,
-	require        = newrequire,
-	select         = select,
+	require        = require "require",
+	select         = require "select",
 	setfenv        = setfenv,
 	setmetatable   = setmetatable,
 	tonumber       = tonumber,
 	tostring       = tostring,
 	type           = type,
-	unpack         = unpack,
+	unpack         = require "unpack",
 	xpcall         = xpcall,
 };

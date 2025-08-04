@@ -1,15 +1,16 @@
+---@diagnostic disable: deprecated, undefined-field
 if not table then return {}; end
 local next = next;
 local type = type;
 
 local function maxn(list)
 	local max = 0;
-	local i, v = next(list);
+	local i = next(list);
 	while i do
 		if type(i) == "number" and i > max then
 			max = i;
 		end
-		i, v = next(list, i);
+		i = next(list, i);
 	end
 	return max;
 end

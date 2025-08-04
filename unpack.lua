@@ -1,5 +1,4 @@
-local table = require "table";
-
+---@diagnostic disable: deprecated
 local getn = table.getn;
 
 local function unpack(list, i, j)

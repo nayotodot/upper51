@@ -1,19 +1,18 @@
-local io     = require "io";
-local string = require "string";
-
+---@diagnostic disable: deprecated, undefined-global
 local error        = error;
 local getfenv      = getfenv;
 local loadfile     = loadfile;
 local setmetatable = setmetatable;
 local type         = type;
 
-local close = io.close;
-local open  = io.open;
+local close        = io.close;
+local open         = io.open;
 
-local find   = string.find;
-local format = string.format;
-local gsub   = string.gsub;
-local sub    = string.sub;
+local find         = string.find;
+local format       = string.format;
+local gsub         = string.gsub;
+local len          = string.len;
+local sub          = string.sub;
 
 local LUA_PATH_SEP  = ";";
 local LUA_PATH_MARK = "?";
@@ -39,11 +38,12 @@ end
 
 local function getnextfilename(path)
 	local i = 1;
+	local n = len(path);
 	return function()
-		if i then
+		if i < n then
 			local from, to = find(path, LUA_PATH_SEP, i);
-			local result = sub(path, i, from and (from - 1));
-			i = to and (to + 1);
+			local result = sub(path, i, from and (from - 1) or n);
+			i = to and (to + 1) or n;
 			return result;
 		end
 	end;
@@ -124,7 +124,7 @@ local function seeall(ns)
 	setmetatable(ns, metatable);
 end
 
-package.config     = LUA_DIRSEP .."\n".. LUA_PATH_SEP .."\n".. LUA_PATH_MARK .."\n".. LUA_EXEC_DIR .."\n".. LUA_IGMARK .."\n";
+package.config     = LUA_DIRSEP .. "\n" .. LUA_PATH_SEP .. "\n" .. LUA_PATH_MARK .. "\n" .. LUA_EXEC_DIR .. "\n" .. LUA_IGMARK .. "\n";
 package.cpath      = LUA_CPATH_DEFAULT;
 package.loaded     = {};
 package.loadlib    = loadlib;

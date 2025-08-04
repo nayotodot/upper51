@@ -1,3 +1,4 @@
+---@diagnostic disable: deprecated
 if not debug then return {}; end
 return {
 	debug        = debug.debug,

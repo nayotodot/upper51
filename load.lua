@@ -1,14 +1,11 @@
-local string = require "string";
-
+---@diagnostic disable: deprecated
 local error      = error;
--- local getfenv    = getfenv;
 local loadstring = loadstring;
 local pcall      = pcall;
--- local setfenv    = setfenv;
 local type       = type;
 
-local dump   = string.dump;
-local format = string.format;
+local dump       = string.dump;
+local format     = string.format;
 
 local function load(func, chunkname)
 	local chunk;
@@ -34,7 +31,6 @@ local function load(func, chunkname)
 	if not f then
 		return f, err;
 	end
-	-- setfenv(f, getfenv(2));
 	return f;
 end
 

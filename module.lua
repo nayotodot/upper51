@@ -1,22 +1,21 @@
+---@diagnostic disable: deprecated, undefined-field
 local package = require "package";
-local string  = require "string";
-local table   = require "table";
 
 local error   = error;
 local getfenv = getfenv;
 local setfenv = setfenv;
 local type    = type;
 
-local loaded = package.loaded;
+local loaded  = package.loaded;
 
-local format = string.format;
-local gmatch = string.gmatch;
-local gsub   = string.gsub;
+local format  = string.format;
+local gfind   = string.gfind;
+local gsub    = string.gsub;
 
-local getn = table.getn;
+local getn    = table.getn;
 
 local function findtable(t, f)
-	for w in gmatch(f, "[%w_]+") do
+	for w in gfind(f, "[%w_]+") do
 		if not t[w] then
 			return t[w];
 		end

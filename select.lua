@@ -1,7 +1,7 @@
+---@diagnostic disable: deprecated
 local unpack = require "unpack";
-local table  = require "table";
 
-local getn = table.getn;
+local getn   = table.getn;
 
 local function select(index, ...)
 	local n = getn(arg);

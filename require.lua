@@ -1,14 +1,13 @@
-local package = require "package";
-local string  = require "string";
+local package   = require "package";
 
-local error = error;
-local pcall = pcall;
-local type  = type;
+local error     = error;
+local pcall     = pcall;
+local type      = type;
 
 local searchers = package.searchers;
 local loaded    = package.loaded;
 
-local format = string.format;
+local format    = string.format;
 
 local function findloader(name)
 	if type(searchers) ~= "table" then
